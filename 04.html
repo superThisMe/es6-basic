@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html en="ko">
+<head></head>
+<body>
+
+    <script type="text/javascript">
+    //1. default parameter value
+    function f(a, b, c) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    f(); console.log("---------------");
+    f(1); console.log("---------------");
+    f(1, 2); console.log("---------------");
+    f(1, 2, 3); console.log("---------------");
+
+    function f2(a = 10, b = 20, c = 30) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    f2(); console.log("---------------");
+    f2(1); console.log("---------------");
+    f2(1, 2); console.log("---------------");
+    f2(1, 2, 3); console.log("---------------");
+
+    //2. rest parameter (...rest)
+    function bar(param1, param2, ...rest) {
+        console.log(param1); // 1
+        console.log(param2); // 2
+        console.log(rest);   // [ 3, 4, 5 ]
+    }
+    bar(1, 2, 3, 4, 5);
+
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+
+    //3. spread (리스트 해체)
+    console.log([1, 2, 3]);
+    console.log(...[1, 2, 3]);
+    function f3(x, y, z) {
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    }
+    f3([1, 2, 3]);    // = f3([1, 2, 3], undefined, undefined)
+    f3(...[1, 2, 3]); // = f3(1, 2, 3)
+
+    let ar = [10, 20, 30];
+    const ar2 = [...ar, 40, 50]; // ar 배열에 40, 50을 추가한 배열    
+    ar.splice(1, 0, ...[40, 50]); // 배열의 1번째 위치에 40, 50 삽입한 배열
+    console.log(ar2);
+    console.log(ar);
+    </script>
+
+</body>
+</html>

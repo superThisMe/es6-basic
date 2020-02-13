@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html en="ko">
+<head></head>
+<body>
+    <button id="btn1">함수 호출 1</button>
+    <button id="btn2">함수 호출 2</button>
+    <button id="btn3">함수 호출 3</button>
+    
+    <script type="text/javascript">
+    function f(event) {
+        console.log("function f is called");
+    }
+
+    var btn1 = document.querySelector("#btn1");
+    btn1.addEventListener("click", f);
+
+    var btn2 = document.querySelector("#btn2");
+    btn2.addEventListener("click", function(event) {
+        console.log("anonymous function is called");
+    });
+
+    var btn3 = document.querySelector("#btn3");
+    // btn3.addEventListener("click", (event) => {
+    //     console.log("arrow function is called");
+    // });
+    btn3.addEventListener(
+        "click", 
+        event => console.log("arrow function is called")
+    );
+
+    const f2 = () => console.log("arrow function");
+    f2();
+    </script>
+</body>
+</html>

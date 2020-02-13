@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html en="ko">
+<head></head>
+<body>
+    <script type="text/javascript">
+    // var, let, const 형 비교
+
+    var x1 = 10;    //함수 범위 변수
+    let x2 = 20;    //블록 범위 변수
+    const x3 = 30;  //블록 범위 상수 (값 변경 X)
+
+    x1 = 100;
+    x2 = 200;
+    //x3 = 300; // 오류 : const는 값 변경 X
+
+    function f() {
+        var y1 = 10;
+        let y2 = 20;
+        {
+            var y1 = 100;
+            let y2 = 200;
+        }
+
+        console.log(y1 + " / " + y2);
+    }
+    f();
+    </script>
+</body>
+</html>
