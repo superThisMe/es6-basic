@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html en="ko">
+<head></head>
+<body>
+
+<script type="text/javascript">
+
+    function increase10(number) {
+        //Promise : 비동기 작업 관리기
+        const promise = new Promise( (resolve, reject) => {
+            window.setTimeout(
+                () => { 
+                    const result = number + 10;
+                    if (result < 60) {
+                    resolve(result); // -> resolve가 호출되면 then이 호출됩니다.
+                    } else {
+                        reject("The End...");
+                    }
+                },
+                1000
+            );
+        } );
+        return promise;        
+    }
+
+    increase10(0).then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .then( (result) => { console.log(result); return increase10(result); } )
+                 .catch( (e) => console.log(e) );
+
+</script>
+
+</body>
+</html>

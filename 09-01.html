@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html en="ko">
+<head></head>
+<body>
+
+<script type="text/javascript">
+
+    //1. 비동기 작업
+    // window.setTimeout(
+    //     () => { console.log("1. 요청한 작업을 수행했습니다.") },
+    //     1000
+    // );
+    // console.log("2. window.setTimeout 호출 후에 실행");
+
+    //2. 비동기 작업
+    function increase10(number, callback) {
+        window.setTimeout(
+            () => { 
+                const result = number + 10;
+                if (callback) {
+                    callback(result);
+                }
+            },
+            1000
+        );
+    }
+
+    // function f(result) {
+    //     console.log(result);
+    // }
+    // increase10(100, f);
+    // console.log("after calling increase !!!!!");
+
+    increase10(0, (result) => {
+        console.log(result);
+        increase10(result, (result) => {
+            console.log(result);
+            increase10(result, (result) => {
+                console.log(result);
+                increase10(result, (result) => {
+                    console.log(result);
+                    increase10(result, (result) => {
+                        console.log(result);
+                        console.log("The End...");
+                    });
+                })
+            });
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>
